@@ -12,6 +12,7 @@ def news_page():
     all_articles = get_all_news()
     articles = all_articles
 
+    # ✅ 카테고리 필터링 처리
     if category_filter and category_filter != "전체":
         articles = [a for a in all_articles if category_filter in a["source"]]
     else:
@@ -34,13 +35,17 @@ def news_page():
     total_pages = (total + per_page - 1) // per_page
 
     # ✅ 속보 ticker
-    keywords = ["속보", "긴급", "파업", "지연", "지하철", "사고", "정전", "무정차"]
+    keywords = ["속보", "긴급", "파업", "지연", "지하철", "사고", "정전", "무정차", "이벤트", "공지"]
     ticker = []
     for a in all_articles[:10]:
         if any(k in a["title"] for k in keywords):
             ticker.append(a["title"])
         if len(ticker) >= 5:
             break
+
+    # ✅ ticker가 없을 경우 임시 대체 데이터 제공
+    if not ticker:
+        ticker = [a["title"] for a in all_articles[:5]]
 
     # ✅ 인기기사
     try:
