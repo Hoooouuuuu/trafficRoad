@@ -9,16 +9,12 @@
   <!-- ✅ Favicon -->
   <link rel="icon" href="/image/main/icon.png" type="image/png">
 
-  <!-- ✅ Bootstrap & 외부 공통 리소스 -->
+  <!-- ✅ 외부 리소스 -->
   <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
-    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
 
-  <!-- ✅ jQuery (항상 Bootstrap JS보다 먼저!) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-  <!-- ✅ Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- ✅ 프로젝트 전용 CSS & JS -->
@@ -26,8 +22,7 @@
   <script th:src="@{/js/home.js}"></script>
 
   <style>
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       height: 100%;
@@ -48,6 +43,9 @@
       width: 100%;
       height: 100%;
       border: none;
+      margin: 0;
+      padding: 0;
+      display: block;
     }
 
     footer {
@@ -57,7 +55,6 @@
       padding: 20px;
     }
   </style>
-
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -68,11 +65,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- 웹(데스크톱)용 로고 -->
     <a class="navbar-brand d-none d-lg-block position-absolute top-0 mt-2 ms-3" style="z-index: 1020;" th:href="@{/}">
-      <!-- 라이트 모드 로고 -->
       <img src="/image/main/logo-light.png" alt="Logo Light" class="logo-light" style="height: 40px;">
-      <!-- 다크 모드 로고 -->
       <img src="/image/main/logo-dark.png" alt="Logo Dark" class="logo-dark" style="height: 40px;">
     </a>
 
@@ -101,13 +95,11 @@
       <button id="toggle-mode" class="btn btn-outline-light">🌙</button>
     </div>
 
-    <!-- 모바일 메뉴 안에 있는 로고 -->
+    <!-- 모바일 메뉴 -->
     <div class="collapse navbar-collapse justify-content-center" id="mobileMenu">
       <div class="d-lg-none text-center w-100">
         <a class="navbar-brand d-lg-none mt-2 d-inline-block" th:href="@{/}">
-          <!-- 라이트 모드 로고 -->
           <img src="/image/main/logo-light.png" alt="Logo Light" class="logo-light" style="height: 40px;">
-          <!-- 다크 모드 로고 -->
           <img src="/image/main/logo-dark.png" alt="Logo Dark" class="logo-dark" style="height: 40px;">
         </a>
         <hr />
@@ -118,9 +110,7 @@
           <a class="nav-link d-flex align-items-center justify-content-center" href="#" id="mobileBoardDropdown"
             data-bs-toggle="collapse" data-bs-target="#boardDropdownMenu" aria-expanded="false"
             aria-controls="boardDropdownMenu">
-            게시판
-            <i class="bi bi-chevron-down ms-2 arrow-icon"></i>
-          </a>
+            게시판 <i class="bi bi-chevron-down ms-2 arrow-icon"></i>
           </a>
           <div class="collapse" id="boardDropdownMenu">
             <ul class="list-unstyled ps-0">
